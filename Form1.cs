@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
+using static System.Net.WebRequestMethods;
+using System.Security.Policy;
 
 
 
@@ -36,6 +39,24 @@ namespace ytdlp_gui_mp3
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // The grabbing of URL text
+            var urlString = textBoxURL.Text;
+
+            // Some URL checking probably
+
+            // The Download
+            Process process = new Process();
+            process.StartInfo.FileName = "./yt-dlp.exe";
+            process.StartInfo.Arguments = $"-x --audio-format mp3 {urlString}";
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.RedirectStandardError = true;
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            process.Start();
+            Debug.WriteLine(process.StandardOutput.ReadToEnd());
+            Debug.WriteLine(process.StandardError.ReadToEnd());
+            process.WaitForExit();
 
         }
     }

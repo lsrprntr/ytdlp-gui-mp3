@@ -56,7 +56,7 @@
             this.ClientSize = new System.Drawing.Size(400, 200);
             this.Controls.Add(this.textBoxURL);
             this.Controls.Add(this.button1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Youtube MP3 Downloader";

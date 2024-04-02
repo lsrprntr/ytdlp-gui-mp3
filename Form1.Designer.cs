@@ -34,19 +34,20 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(250, 36);
+            this.button1.Location = new System.Drawing.Point(317, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(52, 43);
+            this.button1.Size = new System.Drawing.Size(71, 27);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Download";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBoxURL
             // 
-            this.textBoxURL.Location = new System.Drawing.Point(123, 95);
+            this.textBoxURL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxURL.Location = new System.Drawing.Point(12, 16);
             this.textBoxURL.Name = "textBoxURL";
-            this.textBoxURL.Size = new System.Drawing.Size(165, 20);
+            this.textBoxURL.Size = new System.Drawing.Size(299, 20);
             this.textBoxURL.TabIndex = 1;
             // 
             // MainForm

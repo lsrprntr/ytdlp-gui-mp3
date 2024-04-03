@@ -18,26 +18,12 @@ namespace ytdlp_gui_mp3
 {
     public partial class MainForm : Form
     {
-        // Movable None Form
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
-
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void MainForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonDownload_Click(object sender, EventArgs e)
         {
             // The grabbing of URL text
             var urlString = textBoxURL.Text;
@@ -54,9 +40,18 @@ namespace ytdlp_gui_mp3
             process.StartInfo.CreateNoWindow = true;
             process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             process.Start();
-            Debug.WriteLine(process.StandardOutput.ReadToEnd());
-            Debug.WriteLine(process.StandardError.ReadToEnd());
+
+            var standardOutputText = process.StandardOutput.ReadToEnd();
+            var standardErrorText = process.StandardError.ReadToEnd();
+            OutputToTextBoxConsole(standardOutputText, standardErrorText);
+
             process.WaitForExit();
+        }
+
+        private void OutputToTextBoxConsole(string standardOutputText, string standardErrorText)
+        {
+            Debug.WriteLine(standardOutputText);
+            Debug.WriteLine(standardErrorText);
 
         }
     }

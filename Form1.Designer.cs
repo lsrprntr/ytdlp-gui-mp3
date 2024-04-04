@@ -31,7 +31,7 @@
             this.buttonDownload = new System.Windows.Forms.Button();
             this.textBoxURL = new System.Windows.Forms.TextBox();
             this.groupBoxMain = new System.Windows.Forms.GroupBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.labelFolderPath = new System.Windows.Forms.Label();
             this.buttonFolder = new System.Windows.Forms.Button();
             this.labelURLText = new System.Windows.Forms.Label();
             this.textBoxConsoleOutput = new System.Windows.Forms.TextBox();
@@ -70,7 +70,7 @@
             this.groupBoxMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxMain.Controls.Add(this.maskedTextBox1);
+            this.groupBoxMain.Controls.Add(this.labelFolderPath);
             this.groupBoxMain.Controls.Add(this.buttonDownload);
             this.groupBoxMain.Controls.Add(this.buttonFolder);
             this.groupBoxMain.Controls.Add(this.textBoxURL);
@@ -82,14 +82,16 @@
             this.groupBoxMain.TabStop = false;
             this.groupBoxMain.Text = "Parameters";
             // 
-            // maskedTextBox1
+            // labelFolderPath
             // 
-            this.maskedTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.labelFolderPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(112, 75);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(642, 20);
-            this.maskedTextBox1.TabIndex = 4;
+            this.labelFolderPath.AutoSize = true;
+            this.labelFolderPath.Location = new System.Drawing.Point(112, 78);
+            this.labelFolderPath.Name = "labelFolderPath";
+            this.labelFolderPath.Size = new System.Drawing.Size(22, 13);
+            this.labelFolderPath.TabIndex = 5;
+            this.labelFolderPath.Text = "C:\\";
             // 
             // buttonFolder
             // 
@@ -101,8 +103,9 @@
             this.buttonFolder.Name = "buttonFolder";
             this.buttonFolder.Size = new System.Drawing.Size(100, 40);
             this.buttonFolder.TabIndex = 2;
-            this.buttonFolder.Text = "Browse Folder";
+            this.buttonFolder.Text = "Select Folder";
             this.buttonFolder.UseVisualStyleBackColor = true;
+            this.buttonFolder.Click += new System.EventHandler(this.buttonFolder_Click);
             // 
             // labelURLText
             // 
@@ -132,7 +135,7 @@
             this.textBoxConsoleOutput.ReadOnly = true;
             this.textBoxConsoleOutput.Size = new System.Drawing.Size(784, 171);
             this.textBoxConsoleOutput.TabIndex = 2;
-            this.textBoxConsoleOutput.Text = "test";
+            this.textBoxConsoleOutput.Text = "Output: ";
             // 
             // folderBrowserDialogDownloadLocation
             // 
@@ -178,8 +181,8 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogDownloadLocation;
         private System.Windows.Forms.Button buttonFolder;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label labelURLText;
+        private System.Windows.Forms.Label labelFolderPath;
     }
 }
 

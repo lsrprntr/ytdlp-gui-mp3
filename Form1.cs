@@ -26,9 +26,11 @@ namespace ytdlp_gui_mp3
             InitializeComponent();
             string root = Application.StartupPath;
             labelFolderPath.Text = root;
+            ConsoleWriter consoleWriter = new ConsoleWriter(textBoxConsoleOutput);
+            Console.SetOut(consoleWriter);
         }
 
-        private void buttonDownload_Click(object sender, EventArgs e)
+        private async void buttonDownload_Click(object sender, EventArgs e)
         {
             // URL
             var urlString = textBoxURL.Text;
@@ -54,17 +56,30 @@ namespace ytdlp_gui_mp3
 
             var standardOutputText = process.StandardOutput.ReadToEnd();
             var standardErrorText = process.StandardError.ReadToEnd();
+
             OutputToTextBoxConsole(standardOutputText, standardErrorText);
+            
 
             process.WaitForExit();
         }
 
         private void OutputToTextBoxConsole(string standardOutputText, string standardErrorText)
         {
+            //standardOutputText.Replace("\n", Environment.NewLine);
+            //Console.WriteLine(standardOutputText);
+            //Console.WriteLine(standardErrorText);
+
             textBoxConsoleOutput.AppendText(standardOutputText + Environment.NewLine);
             textBoxConsoleOutput.AppendText(standardErrorText + Environment.NewLine);
+
+            richTextBoxConsoleOutput.AppendText(standardOutputText);
+            richTextBoxConsoleOutput.AppendText(standardErrorText);
+
+
+
             Debug.WriteLine(standardOutputText);
             Debug.WriteLine(standardErrorText);
+            
             
 
         }
@@ -110,6 +125,30 @@ namespace ytdlp_gui_mp3
             {
                 Debug.WriteLine("Invalid Directory");
                 return false;
+            }
+        }
+
+        public class ConsoleWriter : TextWriter
+        {
+            private Control textbox;
+            public ConsoleWriter(Control textbox)
+            {
+                this.textbox = textbox;
+            }
+
+            public override void Write(char value)
+            {
+                textbox.Text += value;
+            }
+
+            public override void Write(string value)
+            {
+                textbox.Text += value;
+            }
+
+            public override Encoding Encoding
+            {
+                get { return Encoding.ASCII; }
             }
         }
 

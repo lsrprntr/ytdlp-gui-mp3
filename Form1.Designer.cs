@@ -35,8 +35,8 @@
             this.buttonFolder = new System.Windows.Forms.Button();
             this.labelURLText = new System.Windows.Forms.Label();
             this.textBoxConsoleOutput = new System.Windows.Forms.TextBox();
-            this.folderBrowserDialogDownloadLocation = new System.Windows.Forms.FolderBrowserDialog();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.richTextBoxConsoleOutput = new System.Windows.Forms.RichTextBox();
             this.groupBoxMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +70,7 @@
             this.groupBoxMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxMain.Controls.Add(this.richTextBoxConsoleOutput);
             this.groupBoxMain.Controls.Add(this.labelFolderPath);
             this.groupBoxMain.Controls.Add(this.buttonDownload);
             this.groupBoxMain.Controls.Add(this.buttonFolder);
@@ -137,12 +138,6 @@
             this.textBoxConsoleOutput.TabIndex = 2;
             this.textBoxConsoleOutput.Text = "Output: ";
             // 
-            // folderBrowserDialogDownloadLocation
-            // 
-            this.folderBrowserDialogDownloadLocation.Description = "Select Folder";
-            this.folderBrowserDialogDownloadLocation.RootFolder = System.Environment.SpecialFolder.MyComputer;
-            this.folderBrowserDialogDownloadLocation.SelectedPath = "C:\\";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.groupBoxMain);
@@ -152,6 +147,15 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(3);
             this.panel1.Size = new System.Drawing.Size(784, 411);
             this.panel1.TabIndex = 4;
+            // 
+            // richTextBoxConsoleOutput
+            // 
+            this.richTextBoxConsoleOutput.Enabled = false;
+            this.richTextBoxConsoleOutput.Location = new System.Drawing.Point(6, 110);
+            this.richTextBoxConsoleOutput.Name = "richTextBoxConsoleOutput";
+            this.richTextBoxConsoleOutput.Size = new System.Drawing.Size(472, 78);
+            this.richTextBoxConsoleOutput.TabIndex = 6;
+            this.richTextBoxConsoleOutput.Text = "Output: ";
             // 
             // MainForm
             // 
@@ -178,11 +182,11 @@
         private System.Windows.Forms.TextBox textBoxURL;
         private System.Windows.Forms.GroupBox groupBoxMain;
         private System.Windows.Forms.TextBox textBoxConsoleOutput;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogDownloadLocation;
         private System.Windows.Forms.Button buttonFolder;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelURLText;
         private System.Windows.Forms.Label labelFolderPath;
+        private System.Windows.Forms.RichTextBox richTextBoxConsoleOutput;
     }
 }
 

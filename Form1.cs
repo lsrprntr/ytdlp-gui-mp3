@@ -26,8 +26,6 @@ namespace ytdlp_gui_mp3
             InitializeComponent();
             string root = Application.StartupPath;
             labelFolderPath.Text = root;
-            //ConsoleWriter consoleWriter = new ConsoleWriter(textBoxConsoleOutput);
-            //Console.SetOut(consoleWriter);
         }
 
         private async void buttonDownload_Click(object sender, EventArgs e)
@@ -43,28 +41,34 @@ namespace ytdlp_gui_mp3
             }
 
             // The Download
-            Process process = new Process();
-            process.StartInfo.FileName = "./yt-dlp.exe";
-            process.StartInfo.Arguments = $"-P {pathString}";
-            process.StartInfo.Arguments += $" -x --audio-format mp3 {urlString}";
-            process.StartInfo.UseShellExecute = false;
-            process.StartInfo.RedirectStandardOutput = true;
-            process.StartInfo.RedirectStandardError = true;
-            process.StartInfo.CreateNoWindow = true;
-            process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            process.OutputDataReceived += process_DataReceived;
-            process.ErrorDataReceived += process_DataReceived;
+            await RunQuery(pathString, urlString);
 
-            process.Start();
-            process.BeginOutputReadLine(); //Asynchronous
-            process.BeginErrorReadLine(); //Asynchronous
-            //var standardOutputText = process.StandardOutput.ReadToEnd();
-            //var standardErrorText = process.StandardError.ReadToEnd();
-            //OutputToTextBoxConsole(standardOutputText, standardErrorText);
-            process.WaitForExit();
         }
 
-        private async void process_DataReceived(object sender, DataReceivedEventArgs e)
+        private async Task RunQuery(string pathString, string urlString)
+        {
+            await Task.Run(() =>
+                {
+                    Process process = new Process();
+                    process.StartInfo.FileName = "./yt-dlp.exe";
+                    process.StartInfo.Arguments = $"-P {pathString}";
+                    process.StartInfo.Arguments += $" -x --audio-format mp3 {urlString}";
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.RedirectStandardError = true;
+                    process.StartInfo.CreateNoWindow = true;
+                    process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    process.OutputDataReceived += process_DataReceived;
+                    process.ErrorDataReceived += process_DataReceived;
+                    process.Start();
+                    process.BeginOutputReadLine(); //Asynchronous
+                    process.BeginErrorReadLine(); //Asynchronous
+                    process.WaitForExit();
+                }
+            );
+        }
+
+        private void process_DataReceived(object sender, DataReceivedEventArgs e)
         {
             BeginInvoke(
                 new Action( 
@@ -75,23 +79,6 @@ namespace ytdlp_gui_mp3
                     }
                 )
             );
-        }
-
-        private void OutputToTextBoxConsole(string standardOutputText, string standardErrorText)
-        {
-            //standardOutputText.Replace("\n", Environment.NewLine);
-            //Console.WriteLine(standardOutputText);
-            //Console.WriteLine(standardErrorText);
-
-            //textBoxConsoleOutput.AppendText(standardOutputText + Environment.NewLine);
-            //textBoxConsoleOutput.AppendText(standardErrorText + Environment.NewLine);
-
-            //richTextBoxConsoleOutput.AppendText(standardOutputText);
-            //richTextBoxConsoleOutput.AppendText(standardErrorText);
-
-            //Debug.WriteLine(standardOutputText);
-            //Debug.WriteLine(standardErrorText);
-            
         }
 
         private void buttonFolder_Click(object sender, EventArgs e)
@@ -135,30 +122,6 @@ namespace ytdlp_gui_mp3
             {
                 Debug.WriteLine("Invalid Directory");
                 return false;
-            }
-        }
-
-        public class ConsoleWriter : TextWriter
-        {
-            private Control textbox;
-            public ConsoleWriter(Control textbox)
-            {
-                this.textbox = textbox;
-            }
-
-            public override void Write(char value)
-            {
-                textbox.Text += value;
-            }
-
-            public override void Write(string value)
-            {
-                textbox.Text += value;
-            }
-
-            public override Encoding Encoding
-            {
-                get { return Encoding.ASCII; }
             }
         }
 

@@ -31,7 +31,6 @@
             this.buttonDownload = new System.Windows.Forms.Button();
             this.textBoxURL = new System.Windows.Forms.TextBox();
             this.groupBoxMain = new System.Windows.Forms.GroupBox();
-            this.richTextBoxConsoleOutput = new System.Windows.Forms.RichTextBox();
             this.labelFolderPath = new System.Windows.Forms.Label();
             this.buttonFolder = new System.Windows.Forms.Button();
             this.labelURLText = new System.Windows.Forms.Label();
@@ -44,7 +43,7 @@
             // buttonDownload
             // 
             this.buttonDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDownload.Location = new System.Drawing.Point(669, 176);
+            this.buttonDownload.Location = new System.Drawing.Point(669, 124);
             this.buttonDownload.MaximumSize = new System.Drawing.Size(85, 40);
             this.buttonDownload.MinimumSize = new System.Drawing.Size(85, 40);
             this.buttonDownload.Name = "buttonDownload";
@@ -70,7 +69,6 @@
             this.groupBoxMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxMain.Controls.Add(this.richTextBoxConsoleOutput);
             this.groupBoxMain.Controls.Add(this.labelFolderPath);
             this.groupBoxMain.Controls.Add(this.buttonDownload);
             this.groupBoxMain.Controls.Add(this.buttonFolder);
@@ -78,19 +76,10 @@
             this.groupBoxMain.Controls.Add(this.labelURLText);
             this.groupBoxMain.Location = new System.Drawing.Point(12, 12);
             this.groupBoxMain.Name = "groupBoxMain";
-            this.groupBoxMain.Size = new System.Drawing.Size(760, 222);
+            this.groupBoxMain.Size = new System.Drawing.Size(760, 170);
             this.groupBoxMain.TabIndex = 3;
             this.groupBoxMain.TabStop = false;
             this.groupBoxMain.Text = "Parameters";
-            // 
-            // richTextBoxConsoleOutput
-            // 
-            this.richTextBoxConsoleOutput.Enabled = false;
-            this.richTextBoxConsoleOutput.Location = new System.Drawing.Point(6, 110);
-            this.richTextBoxConsoleOutput.Name = "richTextBoxConsoleOutput";
-            this.richTextBoxConsoleOutput.Size = new System.Drawing.Size(472, 78);
-            this.richTextBoxConsoleOutput.TabIndex = 6;
-            this.richTextBoxConsoleOutput.Text = "Output: ";
             // 
             // labelFolderPath
             // 
@@ -99,7 +88,7 @@
             this.labelFolderPath.AutoSize = true;
             this.labelFolderPath.Location = new System.Drawing.Point(112, 78);
             this.labelFolderPath.Name = "labelFolderPath";
-            this.labelFolderPath.Size = new System.Drawing.Size(23, 13);
+            this.labelFolderPath.Size = new System.Drawing.Size(22, 13);
             this.labelFolderPath.TabIndex = 5;
             this.labelFolderPath.Text = "C:\\";
             // 
@@ -138,12 +127,12 @@
             this.textBoxConsoleOutput.ForeColor = System.Drawing.SystemColors.Info;
             this.textBoxConsoleOutput.HideSelection = false;
             this.textBoxConsoleOutput.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.textBoxConsoleOutput.Location = new System.Drawing.Point(0, 240);
+            this.textBoxConsoleOutput.Location = new System.Drawing.Point(0, 188);
             this.textBoxConsoleOutput.MinimumSize = new System.Drawing.Size(784, 166);
             this.textBoxConsoleOutput.Multiline = true;
             this.textBoxConsoleOutput.Name = "textBoxConsoleOutput";
             this.textBoxConsoleOutput.ReadOnly = true;
-            this.textBoxConsoleOutput.Size = new System.Drawing.Size(784, 171);
+            this.textBoxConsoleOutput.Size = new System.Drawing.Size(784, 223);
             this.textBoxConsoleOutput.TabIndex = 2;
             this.textBoxConsoleOutput.Text = "Output: ";
             // 
@@ -186,7 +175,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelURLText;
         private System.Windows.Forms.Label labelFolderPath;
-        private System.Windows.Forms.RichTextBox richTextBoxConsoleOutput;
     }
 }
 

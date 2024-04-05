@@ -31,12 +31,12 @@
             this.buttonDownload = new System.Windows.Forms.Button();
             this.textBoxURL = new System.Windows.Forms.TextBox();
             this.groupBoxMain = new System.Windows.Forms.GroupBox();
+            this.richTextBoxConsoleOutput = new System.Windows.Forms.RichTextBox();
             this.labelFolderPath = new System.Windows.Forms.Label();
             this.buttonFolder = new System.Windows.Forms.Button();
             this.labelURLText = new System.Windows.Forms.Label();
             this.textBoxConsoleOutput = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.richTextBoxConsoleOutput = new System.Windows.Forms.RichTextBox();
             this.groupBoxMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -83,6 +83,15 @@
             this.groupBoxMain.TabStop = false;
             this.groupBoxMain.Text = "Parameters";
             // 
+            // richTextBoxConsoleOutput
+            // 
+            this.richTextBoxConsoleOutput.Enabled = false;
+            this.richTextBoxConsoleOutput.Location = new System.Drawing.Point(6, 110);
+            this.richTextBoxConsoleOutput.Name = "richTextBoxConsoleOutput";
+            this.richTextBoxConsoleOutput.Size = new System.Drawing.Size(472, 78);
+            this.richTextBoxConsoleOutput.TabIndex = 6;
+            this.richTextBoxConsoleOutput.Text = "Output: ";
+            // 
             // labelFolderPath
             // 
             this.labelFolderPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -90,7 +99,7 @@
             this.labelFolderPath.AutoSize = true;
             this.labelFolderPath.Location = new System.Drawing.Point(112, 78);
             this.labelFolderPath.Name = "labelFolderPath";
-            this.labelFolderPath.Size = new System.Drawing.Size(22, 13);
+            this.labelFolderPath.Size = new System.Drawing.Size(23, 13);
             this.labelFolderPath.TabIndex = 5;
             this.labelFolderPath.Text = "C:\\";
             // 
@@ -147,15 +156,6 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(3);
             this.panel1.Size = new System.Drawing.Size(784, 411);
             this.panel1.TabIndex = 4;
-            // 
-            // richTextBoxConsoleOutput
-            // 
-            this.richTextBoxConsoleOutput.Enabled = false;
-            this.richTextBoxConsoleOutput.Location = new System.Drawing.Point(6, 110);
-            this.richTextBoxConsoleOutput.Name = "richTextBoxConsoleOutput";
-            this.richTextBoxConsoleOutput.Size = new System.Drawing.Size(472, 78);
-            this.richTextBoxConsoleOutput.TabIndex = 6;
-            this.richTextBoxConsoleOutput.Text = "Output: ";
             // 
             // MainForm
             // 

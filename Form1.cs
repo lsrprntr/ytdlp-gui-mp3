@@ -26,8 +26,8 @@ namespace ytdlp_gui_mp3
             InitializeComponent();
             string root = Application.StartupPath;
             labelFolderPath.Text = root;
-            ConsoleWriter consoleWriter = new ConsoleWriter(textBoxConsoleOutput);
-            Console.SetOut(consoleWriter);
+            //ConsoleWriter consoleWriter = new ConsoleWriter(textBoxConsoleOutput);
+            //Console.SetOut(consoleWriter);
         }
 
         private async void buttonDownload_Click(object sender, EventArgs e)
@@ -52,15 +52,29 @@ namespace ytdlp_gui_mp3
             process.StartInfo.RedirectStandardError = true;
             process.StartInfo.CreateNoWindow = true;
             process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            process.OutputDataReceived += process_DataReceived;
+            process.ErrorDataReceived += process_DataReceived;
+
             process.Start();
-
-            var standardOutputText = process.StandardOutput.ReadToEnd();
-            var standardErrorText = process.StandardError.ReadToEnd();
-
-            OutputToTextBoxConsole(standardOutputText, standardErrorText);
-            
-
+            process.BeginOutputReadLine(); //Asynchronous
+            process.BeginErrorReadLine(); //Asynchronous
+            //var standardOutputText = process.StandardOutput.ReadToEnd();
+            //var standardErrorText = process.StandardError.ReadToEnd();
+            //OutputToTextBoxConsole(standardOutputText, standardErrorText);
             process.WaitForExit();
+        }
+
+        private async void process_DataReceived(object sender, DataReceivedEventArgs e)
+        {
+            BeginInvoke(
+                new Action( 
+                    () =>
+                    {
+                        textBoxConsoleOutput.Text += e.Data + Environment.NewLine;
+                        textBoxConsoleOutput.AppendText(">: ");
+                    }
+                )
+            );
         }
 
         private void OutputToTextBoxConsole(string standardOutputText, string standardErrorText)
@@ -69,19 +83,15 @@ namespace ytdlp_gui_mp3
             //Console.WriteLine(standardOutputText);
             //Console.WriteLine(standardErrorText);
 
-            textBoxConsoleOutput.AppendText(standardOutputText + Environment.NewLine);
-            textBoxConsoleOutput.AppendText(standardErrorText + Environment.NewLine);
+            //textBoxConsoleOutput.AppendText(standardOutputText + Environment.NewLine);
+            //textBoxConsoleOutput.AppendText(standardErrorText + Environment.NewLine);
 
-            richTextBoxConsoleOutput.AppendText(standardOutputText);
-            richTextBoxConsoleOutput.AppendText(standardErrorText);
+            //richTextBoxConsoleOutput.AppendText(standardOutputText);
+            //richTextBoxConsoleOutput.AppendText(standardErrorText);
 
-
-
-            Debug.WriteLine(standardOutputText);
-            Debug.WriteLine(standardErrorText);
+            //Debug.WriteLine(standardOutputText);
+            //Debug.WriteLine(standardErrorText);
             
-            
-
         }
 
         private void buttonFolder_Click(object sender, EventArgs e)

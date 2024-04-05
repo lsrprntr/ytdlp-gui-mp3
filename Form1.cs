@@ -75,7 +75,7 @@ namespace ytdlp_gui_mp3
                     () =>
                     {
                         textBoxConsoleOutput.Text += e.Data + Environment.NewLine;
-                        textBoxConsoleOutput.AppendText(">: ");
+                        textBoxConsoleOutput.AppendText("> ");
                     }
                 )
             );

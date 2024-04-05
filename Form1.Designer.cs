@@ -124,7 +124,8 @@
             this.textBoxConsoleOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxConsoleOutput.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.textBoxConsoleOutput.Enabled = false;
-            this.textBoxConsoleOutput.ForeColor = System.Drawing.SystemColors.Info;
+            this.textBoxConsoleOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxConsoleOutput.ForeColor = System.Drawing.Color.LimeGreen;
             this.textBoxConsoleOutput.HideSelection = false;
             this.textBoxConsoleOutput.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.textBoxConsoleOutput.Location = new System.Drawing.Point(0, 188);
@@ -132,9 +133,10 @@
             this.textBoxConsoleOutput.Multiline = true;
             this.textBoxConsoleOutput.Name = "textBoxConsoleOutput";
             this.textBoxConsoleOutput.ReadOnly = true;
+            this.textBoxConsoleOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxConsoleOutput.Size = new System.Drawing.Size(784, 223);
             this.textBoxConsoleOutput.TabIndex = 2;
-            this.textBoxConsoleOutput.Text = "Output: ";
+            this.textBoxConsoleOutput.Text = "> ";
             // 
             // panel1
             // 

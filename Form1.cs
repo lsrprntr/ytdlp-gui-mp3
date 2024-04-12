@@ -30,13 +30,12 @@ namespace ytdlp_gui_mp3
 
         private async void buttonDownload_Click(object sender, EventArgs e)
         {
-            // URL
             var urlString = textBoxURL.Text;
             var pathString = labelFolderPath.Text;
 
-            // Some URL checking probably
-            if (urlString == null && pathString == null)
+            if (urlString == null || urlString == "")
             {
+                // Add some URL checking probably
                 return;
             }
 
@@ -102,10 +101,6 @@ namespace ytdlp_gui_mp3
                 if (!CheckDirectoryExists(directory))
                 {
                     labelFolderPath.Text = previousDirectory;
-                }
-                else
-                {
-                    Debug.WriteLine("Valid Directory");
                 }
             }
         }

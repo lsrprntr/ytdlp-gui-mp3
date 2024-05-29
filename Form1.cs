@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using System.Diagnostics;
-using static System.Net.WebRequestMethods;
-using System.Security.Policy;
-using System.IO;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 
 
@@ -70,7 +59,7 @@ namespace ytdlp_gui_mp3
         private void process_DataReceived(object sender, DataReceivedEventArgs e)
         {
             BeginInvoke(
-                new Action( 
+                new Action(
                     () =>
                     {
                         textBoxConsoleOutput.Text += e.Data + Environment.NewLine;

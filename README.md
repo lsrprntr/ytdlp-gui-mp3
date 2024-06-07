@@ -15,8 +15,10 @@ Simple GUI wrapper for [yt-dlp](https://github.com/yt-dlp/yt-dlp) which only dow
 
 ## How to use
 
-1. Put requirements in root folder.
-2. Run ytdlp-gui-mp3.exe
+
+1. Download latest release [LINK](https://github.com/lsrprntr/ytdlp-gui-mp3/releases/download/release/ytdlp-gui-mp3.exe)
+2. Download requirements and place in root folder. Refer to image above.
+3. Run ytdlp-gui-mp3.exe
 
 ## Screenshots
 
